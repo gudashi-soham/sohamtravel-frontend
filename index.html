@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soham Travel Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="logo">SOHAM<span>TRAVEL</span></div>
+  <ul>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <p class="hero-tag">✦ Curated journeys since 2005</p>
+  <h1 class="hero-title">The World<br>Awaits <em>You</em></h1>
+  <p class="hero-sub">Soham Travel crafts unforgettable escapes — from ancient temples to glacial fjords, each journey is shaped around your story.</p>
+  <a href="#destinations" class="btn-primary">Explore Destinations</a>
+</section>
+
+<!-- ── DESTINATIONS ── -->
+<section id="destinations">
+  <div class="dest-header">
+    <p class="section-label">✦ Where will you go</p>
+    <h2 class="section-title">Our <em>Finest</em> Destinations</h2>
+  </div>
+
+  <div class="dest-grid">
+
+    <!-- Card 1: Kyoto -->
+    <div class="dest-card" onclick="toggleDetail('kyoto')">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=900&q=80" alt="Kyoto">
+      <div class="dest-overlay">
+        <span class="dest-number">01</span>
+        <p class="dest-region">Japan, Asia</p>
+        <h3 class="dest-name">Kyoto</h3>
+        <p class="dest-desc">Where centuries-old temples merge with bamboo forests and cherry-blossom lanes — Kyoto is living poetry.</p>
+        <div class="dest-tags">
+          <span class="tag">Temples</span>
+          <span class="tag">Nature</span>
+          <span class="tag">Culture</span>
+        </div>
+        <button class="dest-cta">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Santorini -->
+    <div class="dest-card" onclick="toggleDetail('santorini')">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Santorini">
+      <div class="dest-overlay">
+        <span class="dest-number">02</span>
+        <p class="dest-region">Greece, Europe</p>
+        <h3 class="dest-name">Santorini</h3>
+        <p class="dest-desc">Clifftop villages glowing white against the Aegean — sunsets here are nothing short of mythological.</p>
+        <div class="dest-tags">
+          <span class="tag">Island</span>
+          <span class="tag">Beaches</span>
+          <span class="tag">Luxury</span>
+        </div>
+        <button class="dest-cta">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Card 3: Patagonia -->
+    <div class="dest-card" onclick="toggleDetail('patagonia')">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80" alt="Patagonia">
+      <div class="dest-overlay">
+        <span class="dest-number">03</span>
+        <p class="dest-region">Argentina / Chile, South America</p>
+        <h3 class="dest-name">Patagonia</h3>
+        <p class="dest-desc">Glaciers, steppe, and jagged granite towers — the raw edge of the Earth for those who seek true wilderness.</p>
+        <div class="dest-tags">
+          <span class="tag">Trekking</span>
+          <span class="tag">Glaciers</span>
+          <span class="tag">Wildlife</span>
+        </div>
+        <button class="dest-cta">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Card 4: Morocco -->
+    <div class="dest-card" onclick="toggleDetail('morocco')">
+      <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80" alt="Morocco">
+      <div class="dest-overlay">
+        <span class="dest-number">04</span>
+        <p class="dest-region">North Africa</p>
+        <h3 class="dest-name">Morocco</h3>
+        <p class="dest-desc">Labyrinthine medinas, Saharan dunes, and spice-laden souks — Morocco is a feast for every sense.</p>
+        <div class="dest-tags">
+          <span class="tag">Desert</span>
+          <span class="tag">Culture</span>
+          <span class="tag">History</span>
+        </div>
+        <button class="dest-cta">Explore →</button>
+      </div>
+    </div>
+
+    <!-- Card 5: Maldives -->
+    <div class="dest-card" onclick="toggleDetail('maldives')">
+      <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" alt="Maldives">
+      <div class="dest-overlay">
+        <span class="dest-number">05</span>
+        <p class="dest-region">Indian Ocean</p>
+        <h3 class="dest-name">Maldives</h3>
+        <p class="dest-desc">Turquoise lagoons, overwater bungalows, and coral reefs teeming with life — paradise in its purest form.</p>
+        <div class="dest-tags">
+          <span class="tag">Overwater</span>
+          <span class="tag">Snorkelling</span>
+          <span class="tag">Romance</span>
+        </div>
+        <button class="dest-cta">Explore →</button>
+      </div>
+    </div>
+
+  </div><!-- /.dest--->
+
+  <!-- ── DETAIL PANELS ── -->
+  <div class="dest-detail" id="detail-kyoto">
+    <div class="detail-info">
+      <h3>Kyoto, Japan</h3>
+      <p class="sub">✦ East Asia · Best visited: Mar – May, Oct – Nov</p>
+      <p>Kyoto is Japan's ancient imperial capital, home to over 1,600 Buddhist temples and 400 Shinto shrines. Walking through Arashiyama's bamboo grove at dawn, catching the golden glow of Kinkaku-ji's reflection on still water, or witnessing a geisha glide through the cobblestone lanes of Gion — these are moments that redefine what travel can feel like.</p>
+      <p>The city pulses with seasonal drama: sakura in spring paints the riverbanks pink, and autumn transforms the maple hills into tapestries of amber and crimson. Traditional kaiseki dinners, tea ceremony experiences, and zazen meditation retreats complete a journey that is as deeply internal as it is external.</p>
+      <div class="detail-facts">
+        <div class="fact"><p class="fact-label">Duration</p><p class="fact-value">5 – 10 days</p></div>
+        <div class="fact"><p class="fact-label">Climate</p><p class="fact-value">Temperate</p></div>
+        <div class="fact"><p class="fact-label">Starting from</p><p class="fact-value">₹1,20,000</p></div>
+        <div class="fact"><p class="fact-label">Highlight</p><p class="fact-value">Fushimi Inari</p></div>
+      </div>
+      <button class="detail-close" onclick="toggleDetail('kyoto')">✕ Close</button>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80" alt="Kyoto Detail" class="detail-img">
+    </div>
+  </div>
+
+  <div class="dest-detail" id="detail-santorini">
+    <div class="detail-info">
+      <h3>Santorini, Greece</h3>
+      <p class="sub">✦ Aegean Sea · Best visited: Apr – Jun, Sep – Oct</p>
+      <p>Born from a volcanic caldera, Santorini is perhaps the world's most photographed island — and rightly so. The iconic blue-domed churches of Oia, the cliffside village of Imerovigli, and the black-sand beaches of Perissa form a landscape of breathtaking contrasts.</p>
+      <p>Beyond the postcard scenery lies a rich culinary culture built on local tomatoes, white eggplant, and wines grown in volcanic soil like no other. Sunset sailing tours, private villa stays, and guided vineyard experiences make this the ultimate romantic escape.</p>
+      <div class="detail-facts">
+        <div class="fact"><p class="fact-label">Duration</p><p class="fact-value">4 – 7 days</p></div>
+        <div class="fact"><p class="fact-label">Climate</p><p class="fact-value">Mediterranean</p></div>
+        <div class="fact"><p class="fact-label">Starting from</p><p class="fact-value">₹95,000</p></div>
+        <div class="fact"><p class="fact-label">Highlight</p><p class="fact-value">Oia Sunset</p></div>
+      </div>
+      <button class="detail-close" onclick="toggleDetail('santorini')">✕ Close</button>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1469796466635-455ede028aca?w=700&q=80" alt="Santorini Detail" class="detail-img">
+    </div>
+  </div>
+
+  <div class="dest-detail" id="detail-patagonia">
+    <div class="detail-info">
+      <h3>Patagonia</h3>
+      <p class="sub">✦ South America · Best visited: Nov – Mar</p>
+      <p>Stretching across the southern tip of Argentina and Chile, Patagonia is one of Earth's last great wildernesses. The Torres del Paine massif rises impossibly from the steppe, glaciers calve into milky blue lakes, and condors trace lazy circles overhead.</p>
+      <p>Multi-day treks on the legendary "W" and "O" circuits reward hikers with landscapes that feel extraterrestrial. Ice-trekking on the Perito Moreno Glacier, navigating Tierra del Fuego's channels by boat, and sleeping under skies thick with stars make Patagonia a journey that changes people.</p>
+      <div class="detail-facts">
+        <div class="fact"><p class="fact-label">Duration</p><p class="fact-value">10 – 18 days</p></div>
+        <div class="fact"><p class="fact-label">Climate</p><p class="fact-value">Subpolar</p></div>
+        <div class="fact"><p class="fact-label">Starting from</p><p class="fact-value">₹1,85,000</p></div>
+        <div class="fact"><p class="fact-label">Highlight</p><p class="fact-value">Torres del Paine</p></div>
+      </div>
+      <button class="detail-close" onclick="toggleDetail('patagonia')">✕ Close</button>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?w=700&q=80" alt="Patagonia Detail" class="detail-img">
+    </div>
+  </div>
+
+  <div class="dest-detail" id="detail-morocco">
+    <div class="detail-info">
+      <h3>Morocco</h3>
+      <p class="sub">✦ North Africa · Best visited: Mar – May, Sep – Nov</p>
+      <p>Morocco is a country that overwhelms the senses in the best possible way. The medieval medina of Fes, a UNESCO World Heritage site, is one of the world's largest car-free urban areas — a maze of tanneries, mosques, and hidden riads where the medieval world never quite left.</p>
+      <p>Beyond the cities, the Sahara awaits. Camel treks into the Erg Chebbi dunes at sunset, nights in luxury desert camps under a canopy of stars, and the silence of a landscape that stretches to Algeria — Morocco offers the rare gift of feeling genuinely remote.</p>
+      <div class="detail-facts">
+        <div class="fact"><p class="fact-label">Duration</p><p class="fact-value">7 – 12 days</p></div>
+        <div class="fact"><p class="fact-label">Climate</p><p class="fact-value">Arid / Semi-arid</p></div>
+        <div class="fact"><p class="fact-label">Starting from</p><p class="fact-value">₹75,000</p></div>
+        <div class="fact"><p class="fact-label">Highlight</p><p class="fact-value">Sahara Dunes</p></div>
+      </div>
+      <button class="detail-close" onclick="toggleDetail('morocco')">✕ Close</button>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=700&q=80" alt="Morocco Detail" class="detail-img">
+    </div>
+  </div>
+
+  <div class="dest-detail" id="detail-maldives">
+    <div class="detail-info">
+      <h3>Maldives</h3>
+      <p class="sub">✦ Indian Ocean · Best visited: Nov – Apr</p>
+      <p>The Maldives is a nation of 1,200 coral islands scattered across the Indian Ocean — an archipelago so low-lying it barely grazes the surface of the sea. Overwater bungalows extend on stilts above lagoons of impossible blue, and beneath the surface lies one of the richest marine ecosystems on the planet.</p>
+      <p>Manta rays glide through cleaning stations, whale sharks cruise the outer atolls, and bioluminescent plankton light up the shoreline at night. Whether you seek a honeymoon sanctuary, a diving expedition, or simply to float weightless in warm water with nothing but horizon ahead, the Maldives delivers without compromise.</p>
+      <div class="detail-facts">
+        <div class="fact"><p class="fact-label">Duration</p><p class="fact-value">5 – 8 days</p></div>
+        <div class="fact"><p class="fact-label">Climate</p><p class="fact-value">Tropical</p></div>
+        <div class="fact"><p class="fact-label">Starting from</p><p class="fact-value">₹1,40,000</p></div>
+        <div class="fact"><p class="fact-label">Highlight</p><p class="fact-value">Coral Reefs</p></div>
+      </div>
+      <button class="detail-close" onclick="toggleDetail('maldives')">✕ Close</button>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=700&q=80" alt="Maldives Detail" class="detail-img">
+    </div>
+  </div>
+
+</section><!-- /#destinations -->
+
+<!-- ── WHY US ── -->
+<section id="why">
+  <div>
+    <p class="section-label">✦ Our promise</p>
+    <h2 class="section-title">Why Travel <em>With Us</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌿</div>
+      <h4>Curated Itineraries</h4>
+      <p>Every journey is hand-crafted by our destination experts — no cookie-cutter packages. Your trip reflects your rhythm, interests, and pace.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏡</div>
+      <h4>Handpicked Stays</h4>
+      <p>We only partner with hotels, boutique lodges, and resorts we've personally vetted — places that surprise and exceed expectations.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧭</div>
+      <h4>24/7 On-Ground Support</h4>
+      <p>Our local guides and around-the-clock support team ensure that no matter where you are, help is always one call away.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <h4>Responsible Travel</h4>
+      <p>We offset carbon on every trip, support local economies, and partner with conservation projects at each destination we serve.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💎</div>
+      <h4>Luxury for All Budgets</h4>
+      <p>From intimate boutique escapes to full luxury expeditions — we design experiences that feel extraordinary at every price point.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📸</div>
+      <h4>Memory-Making Moments</h4>
+      <p>We include exclusive access — sunrise temple entries, private beach dinners, after-hours museum tours — the moments others miss.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section id="booking">
+  <div class="booking-wrap">
+    <div class="booking-info">
+      <p class="section-label">✦ Start your journey</p>
+      <h2 class="section-title">Book Your <em>Dream</em> Trip</h2>
+      <p>Fill in your details and one of our travel consultants will reach out within 24 hours to design your perfect itinerary. Every enquiry is complimentary and without obligation.</p>
+      <div class="why-card contact-card">
+        <p>📞 &nbsp;+91 98765 43210<br>✉️ &nbsp;hello@sohamtravel.in<br>🕐 &nbsp;Mon–Sat, 9 AM – 7 PM IST</p>
+      </div>
+    </div>
+
+    <div class="booking-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="Arjun">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="+91 98765 43210">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Destination</label>
+          <select id="dest">
+            <option value="">— Select —</option>
+            <option value="kyoto">Kyoto, Japan</option>
+            <option value="santorini">Santorini, Greece</option>
+            <option value="patagonia">Patagonia</option>
+            <option value="morocco">Morocco</option>
+            <option value="maldives">Maldives</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Number of Travellers</label>
+          <select id="travellers">
+            <option>1 – Solo</option>
+            <option>2 – Couple</option>
+            <option>3 – 4</option>
+            <option>5 – 8</option>
+            <option>9+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Travel Date</label>
+          <input type="date" id="tdate">
+        </div>
+        <div class="form-group">
+          <label>Budget (Per Person)</label>
+          <select id="budget">
+            <option>Under ₹75,000</option>
+            <option>₹75,000 – ₹1,50,000</option>
+            <option>₹1,50,000 – ₹3,00,000</option>
+            <option>₹3,00,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Special Requests / Notes</label>
+        <textarea id="notes" placeholder="Dietary requirements, accessibility needs, interests…"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitBooking()">Request My Trip →</button>
+      <div class="success-msg" id="success">
+        ✦ &nbsp; Thank you! Your booking request has been received. Our consultant will be in touch within 24 hours.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">SOHAM Travel</div>
+  <p>© 2026 Soham Travel Agency. All rights reserved.</p>
+  <p>Crafted with care for every journey.</p>
+</footer>
+
+<script src="script.js"></script>
+
+  <script>
+    async function submitBooking() {
+       console.log('Button clicked!'); 
+      const firstName   = document.getElementById('fname').value.trim();
+      const lastName    = document.getElementById('lname').value.trim();
+      const email       = document.getElementById('email').value.trim();
+      const phone       = document.getElementById('phone').value.trim();
+      const destination = document.getElementById('dest').value;
+      const travellers  = document.getElementById('travellers').value;
+      const travelDate  = document.getElementById('tdate').value;
+      const budget      = document.getElementById('budget').value;
+      const notes       = document.getElementById('notes').value.trim();
+
+      if (!firstName || !lastName || !email || !phone || !destination || !travelDate) {
+        alert('Please fill in all required fields!');
+        return;
+      }
+
+      try {
+       const response = await fetch('http://127.0.0.1:5000/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName, lastName, email,
+            phone, destination, travellers,
+            travelDate, budget, notes
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          document.getElementById('success').style.display = 'block';
+          document.getElementById('fname').value = '';
+          document.getElementById('lname').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('phone').value = '';
+          document.getElementById('dest').value  = '';
+          document.getElementById('tdate').value = '';
+          document.getElementById('notes').value = '';
+        } else {
+          alert('Error: ' + data.message);
+        }
+
+      } catch (err) {
+        alert('Cannot connect to server. Make sure backend is running!');
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

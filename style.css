@@ -1,0 +1,654 @@
+/* ============================================
+   SOHAM TRAVEL AGENCY — style.css
+   ============================================ */
+
+/* ── RESET & ROOT VARIABLES ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sand:  #f5ede0;
+  --clay:  #c4835a;
+  --earth: #7a4f35;
+  --night: #1a1209;
+  --gold:  #d4a853;
+  --fog:   #e8ddd0;
+  --moss:  #4a6741;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--night);
+  color: var(--sand);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 3rem;
+  background: linear-gradient(to bottom, rgba(26,18,9,0.9), transparent);
+  backdrop-filter: blur(2px);
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.logo span {
+  font-style: italic;
+  color: var(--sand);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--fog);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+#hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(26,18,9,0.3) 0%, rgba(26,18,9,0.7) 60%, var(--night) 100%),
+    url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80') center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 7rem;
+}
+
+.hero-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--sand);
+  margin-bottom: 1.4rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--fog);
+  opacity: 0.85;
+  margin-bottom: 2.8rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+/* ============================================
+   SHARED SECTION LABELS & TITLES
+   ============================================ */
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1.15;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ============================================
+   DESTINATIONS SECTION
+   ============================================ */
+#destinations {
+  padding: 6rem 3rem;
+}
+
+.dest-header {
+  margin-bottom: 4rem;
+}
+
+/* Grid layout */
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+/* Individual card */
+.dest-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+/* First card spans 2 rows */
+.dest-card:first-child {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s;
+  filter: brightness(0.7) saturate(0.9);
+}
+
+.dest-card:hover img {
+  transform: scale(1.06);
+  filter: brightness(0.55) saturate(1.1);
+}
+
+/* Card overlay gradient */
+.dest-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,18,9,0.92) 0%, rgba(26,18,9,0.1) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.dest-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.15;
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  line-height: 1;
+}
+
+.dest-region {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.4rem;
+}
+
+.dest-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--sand);
+  margin-bottom: 0.5rem;
+}
+
+.dest-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--fog);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s, max-height 0.5s;
+}
+
+.dest-card:hover .dest-desc {
+  opacity: 1;
+  max-height: 8rem;
+}
+
+/* Tag pills */
+.dest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(212,168,83,0.4);
+  color: var(--gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+/* Card CTA button */
+.dest-cta {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0;
+  transition: opacity 0.4s 0.1s, border-color 0.3s;
+}
+
+.dest-card:hover .dest-cta {
+  opacity: 1;
+  border-bottom-color: var(--gold);
+}
+
+/* ── DESTINATION DETAIL PANELS ── */
+.dest-detail {
+  display: none;
+  padding: 3rem;
+  background: #231a10;
+  border-left: 3px solid var(--gold);
+  animation: fadeIn 0.4s ease;
+}
+
+.dest-detail.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.detail-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.detail-info .sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--clay);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.detail-info p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--fog);
+  margin-bottom: 1rem;
+}
+
+.detail-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.fact {
+  border: 1px solid rgba(212,168,83,0.2);
+  padding: 0.9rem 1rem;
+}
+
+.fact-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.fact-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--sand);
+  margin-top: 0.2rem;
+}
+
+.detail-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.detail-close {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clay);
+  cursor: pointer;
+  border: 1px solid rgba(196,131,90,0.3);
+  padding: 0.5rem 1rem;
+  background: none;
+  transition: background 0.3s, color 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 1.2rem;
+  display: inline-block;
+}
+
+.detail-close:hover {
+  background: var(--clay);
+  color: var(--sand);
+}
+
+/* ============================================
+   WHY US SECTION
+   ============================================ */
+#why {
+  padding: 6rem 3rem;
+  border-top: 1px solid rgba(212,168,83,0.12);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.why-card {
+  padding: 2rem;
+  border: 1px solid rgba(212,168,83,0.12);
+  transition: border-color 0.3s;
+}
+
+.why-card:hover {
+  border-color: rgba(212,168,83,0.4);
+}
+
+.why-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.why-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.why-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--fog);
+  opacity: 0.8;
+}
+
+/* ============================================
+   BOOKING SECTION
+   ============================================ */
+#booking {
+  padding: 6rem 3rem;
+  background: linear-gradient(135deg, #231a10 0%, #1a1209 100%);
+  border-top: 1px solid rgba(212,168,83,0.12);
+}
+
+.booking-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.booking-info p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--fog);
+  opacity: 0.8;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  max-width: 320px;
+  font-size: 0.8rem;
+  color: var(--fog);
+  line-height: 1.7;
+}
+
+/* Booking form layout */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,168,83,0.2);
+  color: var(--sand);
+  padding: 0.8rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group select option {
+  background: #231a10;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submit-btn {
+  padding: 1rem 2.8rem;
+  background: var(--gold);
+  color: var(--night);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
+}
+
+.success-msg {
+  display: none;
+  background: rgba(74,103,65,0.2);
+  border: 1px solid var(--moss);
+  padding: 1.2rem 1.6rem;
+  color: #8fbe84;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  padding: 2.5rem 3rem;
+  border-top: 1px solid rgba(212,168,83,0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+footer p {
+  font-size: 0.75rem;
+  color: var(--fog);
+  opacity: 0.45;
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media (max-width: 900px) {
+
+  nav ul {
+    display: none;
+  }
+
+  .dest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dest-card:first-child {
+    aspect-ratio: 4 / 3;
+    grid-row: auto;
+  }
+
+  .dest-detail.active {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .booking-wrap {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #hero {
+    padding: 0 1.5rem 5rem;
+  }
+
+  #destinations,
+  #why,
+  #booking {
+    padding: 4rem 1.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
