@@ -352,6 +352,11 @@
 <script src="script.js"></script>
 
   <script>
+    // Check if user is logged in
+const token = localStorage.getItem('soham_token');
+if (!token) {
+  window.location.href = 'login.html';
+}
     async function submitBooking() {
        console.log('Button clicked!'); 
       const firstName   = document.getElementById('fname').value.trim();
