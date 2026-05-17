@@ -16,6 +16,7 @@
     <li><a href="#destinations">Destinations</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#booking">Book</a></li>
+    <li><a href="#" onclick="logout()">Logout</a></li>
   </ul>
 </nav>
 
@@ -357,6 +358,11 @@ const token = localStorage.getItem('soham_token');
 if (!token) {
   window.location.href = 'login.html';
 }
+function logout() {
+    localStorage.removeItem('soham_token');
+    localStorage.removeItem('soham_user');
+    window.location.href = 'login.html';
+  }
     async function submitBooking() {
        console.log('Button clicked!'); 
       const firstName   = document.getElementById('fname').value.trim();
