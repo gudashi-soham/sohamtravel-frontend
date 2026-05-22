@@ -479,7 +479,7 @@
         <input type="checkbox" id="rememberMe"/>
         <span>Remember me</span>
       </label>
-      <a href="#" class="forgot">Forgot password?</a>
+      <a href="#" class="forgot" onclick="forgotPassword()">Forgot password?</a>
     </div>
 
     <!-- Login button -->
@@ -513,6 +513,32 @@
   // Generate stars
   function socialLogin(provider) {
   alert(provider + ' login coming soon! Please use email and password to login.');
+}
+async function forgotPassword() {
+  const email = document.getElementById('email').value.trim();
+
+  if (!email) {
+    showError('Please enter your email address first!');
+    return;
+  }
+
+  try {
+    const response = await fetch('https://sohamtravel-backend-production.up.railway.app/api/auth/forgot-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('✅ Password reset link sent to your email!');
+    } else {
+      showError(data.message);
+    }
+  } catch (err) {
+    showError('Cannot connect to server!');
+  }
 }
   const starsEl = document.getElementById('stars');
   for (let i = 0; i < 90; i++) {
