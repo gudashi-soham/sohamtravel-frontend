@@ -372,55 +372,52 @@ function logout() {
     window.location.href = 'login.html';
   }
     async function submitBooking() {
-       console.log('Button clicked!'); 
-      const firstName   = document.getElementById('fname').value.trim();
-      const lastName    = document.getElementById('lname').value.trim();
-      const email       = document.getElementById('email').value.trim();
-      const phone       = document.getElementById('phone').value.trim();
-      const destination = document.getElementById('dest').value;
-      const travellers  = document.getElementById('travellers').value;
-      const travelDate  = document.getElementById('tdate').value;
-      const budget      = document.getElementById('budget').value;
-      const notes       = document.getElementById('notes').value.trim();
+  const btn = document.querySelector('.submit-btn');
+  const firstName   = document.getElementById('fname').value.trim();
+  const lastName    = document.getElementById('lname').value.trim();
+  const email       = document.getElementById('email').value.trim();
+  const phone       = document.getElementById('phone').value.trim();
+  const destination = document.getElementById('dest').value;
+  const travellers  = document.getElementById('travellers').value;
+  const travelDate  = document.getElementById('tdate').value;
+  const budget      = document.getElementById('budget').value;
+  const notes       = document.getElementById('notes').value.trim();
 
-      if (!firstName || !lastName || !email || !phone || !destination || !travelDate) {
-        alert('Please fill in all required fields!');
-        return;
-      }
+  if (!firstName || !lastName || !email || !phone || !destination || !travelDate) {
+    alert('Please fill in all required fields!');
+    return;
+  }
 
-      try {
-       const response = await fetch('https://sohamtravel-backend-production.up.railway.app/api/bookings', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName, lastName, email,
-            phone, destination, travellers,
-            travelDate, budget, notes
-          })
-        });
+  // Show loading
+  btn.textContent = '⏳ Please wait...';
+  btn.disabled = true;
 
-        const data = await response.json();
+  try {
+    const response = await fetch('https://sohamtravel-backend-production.up.railway.app/api/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName, lastName, email,
+        phone, destination, travellers,
+        travelDate, budget, notes
+      })
+    });
 
-        if (response.ok) {
-  showBookingModal();
-} else {
-  alert('Error: ' + data.message);
-}
-      } catch (err) {
-        alert('Cannot connect to server. Make sure backend is running!');
-      }
+    const data = await response.json();
+
+    if (response.ok) {
+      showBookingModal();
+    } else {
+      alert('Error: ' + data.message);
     }
-    function showBookingModal() {
-  document.getElementById('bookingModal').style.display = 'flex';
-  document.getElementById('fname').value = '';
-  document.getElementById('lname').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('phone').value = '';
-  document.getElementById('dest').value  = '';
-  document.getElementById('tdate').value = '';
-  document.getElementById('notes').value = '';
-}
 
+  } catch (err) {
+    alert('Server is waking up! Please click again in 10 seconds.');
+  } finally {
+    btn.textContent = 'REQUEST MY TRIP →';
+    btn.disabled = false;
+  }
+}
 function closeModal() {
   document.getElementById('bookingModal').style.display = 'none';
 }
